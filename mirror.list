@@ -26,18 +26,18 @@ deb-amd64 http://ca.archive.ubuntu.com/ubuntu xenial-backports main restricted u
 # deb-src http://ca.archive.ubuntu.com/ubuntu xenial-proposed main restricted universe multiverse
 # deb-src http://ca.archive.ubuntu.com/ubuntu xenial-backports main restricted universe multiverse
 
-clean http://ca.archive.ubuntu.com/ubuntu
+# clean http://ca.archive.ubuntu.com/ubuntu
 
 
 # postgresql 
-deb-amd64 http://apt.postgresql.org/pub/repos/apt xenial-pgdg 
+deb-amd64 http://apt.postgresql.org/pub/repos/apt xenial-pgdg main
 
-clean http://apt.postgresql.org/pub/repos/apt
+# clean http://apt.postgresql.org/pub/repos/apt
 
 # node 10x
-deb https://deb.nodesource.com/node_10.x xenial 
-clean https://deb.nodesource.com/node_10.x
+deb https://deb.nodesource.com/node_10.x xenial main
+# clean https://deb.nodesource.com/node_10.x
 
 # google 
 deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
-clean http://dl.google.com/linux/chrome/deb/
+# clean http://dl.google.com/linux/chrome/deb/
