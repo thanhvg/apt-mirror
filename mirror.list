@@ -30,12 +30,12 @@ clean http://ca.archive.ubuntu.com/ubuntu
 
 
 # postgresql 
-deb-amd64 http://apt.postgresql.org/pub/repos/apt xenial-pgdg InRelease
+deb-amd64 http://apt.postgresql.org/pub/repos/apt xenial-pgdg 
 
 clean http://apt.postgresql.org/pub/repos/apt
 
 # node 10x
-deb https://deb.nodesource.com/node_10.x xenial InRelease
+deb https://deb.nodesource.com/node_10.x xenial 
 clean https://deb.nodesource.com/node_10.x
 
 # google 

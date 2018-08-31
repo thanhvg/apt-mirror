@@ -34,8 +34,8 @@ def copy_to_temp(filename):
 
 
 def copy_to_source_list(filename):
-    # run = subprocess.run(['sudo', 'cp', filename, '/etc/apt/sources.list.d/'])
-    run = subprocess.run(['sudo', 'cp', filename, '/home/gvuong/Documents'])
+    run = subprocess.run(['sudo', 'cp', filename, '/etc/apt/sources.list.d/'])
+    # run = subprocess.run(['sudo', 'cp', filename, '/home/gvuong/Documents'])
 
     if (run.returncode == 0):
         return 0
@@ -52,7 +52,8 @@ def allow_apt_access_user_media(path):
 
 
 if __name__ == '__main__':
-    username = os.getlogin()
+    #  username = os.getlogin()
+    username = os.environ['USER']
     mirror_path = '/media/' + username + '/apt-mirror'
     sourcefile = './src/sources.list.d/ivt-mirror.list'
 
