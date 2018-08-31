@@ -1,0 +1,15 @@
+http://forums.debian.net/viewtopic.php?f=17&t=133676&start=15
+
+To conclude: The ‘/media/USERNAME’ directory is special, in that the owning ‘root’ user account has full access to it, and that the ‘USERNAME’ account has read and execute rights. All other users are denied any access to the location.
+
+deb [ arch=amd64 ] file:///media/intelliview/apt-mirror/mirror/ca.archive.ubuntu.com/ubuntu xenial main restricted universe multiverse
+
+intelliview@sam-dev:/media$ sudo setfacl -m _apt:rx intelliview
+
+Get:1 file:/media/intelliview/apt-mirror/mirror/ca.archive.ubuntu.com/ubuntu xenial InRelease [247 kB]
+Get:1 file:/media/intelliview/apt-mirror/mirror/ca.archive.ubuntu.com/ubuntu xenial InRelease [247 kB]
+Ign:2 http://dl.google.com/linux/chrome/deb stable InRelease                                                 
+Hit:3 http://dl.google.com/linux/chrome/deb stable Release                                                   
+Hit:4 http://ca.archive.ubuntu.com/ubuntu xenial InRelease                                                   
+Hit:5 http://apt.postgresql.org/pub/repos/apt xenial-pgdg InRelease                                          
+Hit:7 https://deb.nodesource.com/node_10.x xenial InRelease
