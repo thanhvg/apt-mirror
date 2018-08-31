@@ -1,0 +1,11 @@
+# main 
+deb [ arch=amd64 ] file:///media/intelliview/apt-mirror/mirror/ca.archive.ubuntu.com/ubuntu xenial main restricted universe multiverse
+
+# node
+deb file:///media/intelliview/apt-mirror/mirror/deb.nodesource.com/node_10.x xenial main
+
+# google
+deb [arch=amd64] file:///media/intelliview/apt-mirror/mirror/dl.google.com/linux/chrome/deb/ stable main
+
+# postgresql
+deb file:///media/intelliview/apt-mirror/mirror/apt.postgresql.org/pub/repos/apt/ xenial-pgdg main
