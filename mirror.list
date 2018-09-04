@@ -1,6 +1,8 @@
 ############# config ##################
-#
+
+# base_path must be set to correct value
 set base_path    /media/gvuong/apt-mirror
+
 #
 # set mirror_path  $base_path/mirror
 # set skel_path    $base_path/skel
