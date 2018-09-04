@@ -67,10 +67,10 @@ if __name__ == '__main__':
 
         copy_to_source_list(sourcefile)
 
-        print('APP SUCCEEDED')
+        print('IVT mirror added successfully')
         sys.exit(0)
 
     except Exception as e:
-        print('APP FAILED')
+        print('IVT mirror failed to added')
         print(e)
         sys.exit(1)

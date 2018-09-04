@@ -13,3 +13,8 @@ Hit:3 http://dl.google.com/linux/chrome/deb stable Release
 Hit:4 http://ca.archive.ubuntu.com/ubuntu xenial InRelease                                                   
 Hit:5 http://apt.postgresql.org/pub/repos/apt xenial-pgdg InRelease                                          
 Hit:7 https://deb.nodesource.com/node_10.x xenial InRelease
+
+
+wget --no-parent -r http://apt.postgresql.org/pub/repos/apt/pool/ mirror/
+
+wget --no-parent -r http://apt.postgresql.org/pub/repos/apt/dists/xenial-pgdg mirror/

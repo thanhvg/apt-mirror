@@ -31,8 +31,8 @@ deb-amd64 http://ca.archive.ubuntu.com/ubuntu xenial-backports main restricted u
 # clean http://ca.archive.ubuntu.com/ubuntu
 
 
-# postgresql 
-deb-amd64 http://apt.postgresql.org/pub/repos/apt xenial-pgdg main
+# postgresql , apt-mirror call not download all of it, use external wget instead
+# deb-amd64 http://apt.postgresql.org/pub/repos/apt xenial-pgdg main
 
 # clean http://apt.postgresql.org/pub/repos/apt
 

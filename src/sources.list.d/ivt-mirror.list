@@ -8,4 +8,4 @@ deb file:///media/intelliview/apt-mirror/mirror/deb.nodesource.com/node_10.x xen
 deb [arch=amd64] file:///media/intelliview/apt-mirror/mirror/dl.google.com/linux/chrome/deb/ stable main
 
 # postgresql
-deb [arch=amd64] file:///media/intelliview/apt-mirror/mirror/apt.postgresql.org/pub/repos/apt/ xenial-pgdg main
+deb file:///media/intelliview/apt-mirror/mirror/apt.postgresql.org/pub/repos/apt/ xenial-pgdg main
