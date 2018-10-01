@@ -22,11 +22,11 @@ deb-amd64 http://ca.archive.ubuntu.com/ubuntu xenial-updates main restricted uni
 deb-amd64 http://ca.archive.ubuntu.com/ubuntu xenial-proposed main restricted universe multiverse
 deb-amd64 http://ca.archive.ubuntu.com/ubuntu xenial-backports main restricted universe multiverse
 
-# deb-src http://ca.archive.ubuntu.com/ubuntu xenial main restricted universe multiverse
-# deb-src http://ca.archive.ubuntu.com/ubuntu xenial-security main restricted universe multiverse
-# deb-src http://ca.archive.ubuntu.com/ubuntu xenial-updates main restricted universe multiverse
-# deb-src http://ca.archive.ubuntu.com/ubuntu xenial-proposed main restricted universe multiverse
-# deb-src http://ca.archive.ubuntu.com/ubuntu xenial-backports main restricted universe multiverse
+deb-src http://ca.archive.ubuntu.com/ubuntu xenial main restricted universe multiverse
+deb-src http://ca.archive.ubuntu.com/ubuntu xenial-security main restricted universe multiverse
+deb-src http://ca.archive.ubuntu.com/ubuntu xenial-updates main restricted universe multiverse
+deb-src http://ca.archive.ubuntu.com/ubuntu xenial-proposed main restricted universe multiverse
+deb-src http://ca.archive.ubuntu.com/ubuntu xenial-backports main restricted universe multiverse
 
 # clean http://ca.archive.ubuntu.com/ubuntu
 
@@ -37,8 +37,14 @@ deb-amd64 http://ca.archive.ubuntu.com/ubuntu xenial-backports main restricted u
 # clean http://apt.postgresql.org/pub/repos/apt
 
 # node 10x
-deb https://deb.nodesource.com/node_10.x xenial main
+# deb https://deb.nodesource.com/node_10.x xenial main
 # clean https://deb.nodesource.com/node_10.x
+
+# node 8x
+deb https://deb.nodesource.com/node_8.x xenial main
+
+# pm2 
+deb http://apt.pm2.io/ubuntu stable main
 
 # google 
 deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
