@@ -9,16 +9,16 @@ import argparse
 def write_source_list(server):
     return  """
 # main
-deb [arch=amd64] http://{server}/ivt/ca.archive.ubuntu.com/ubuntu xenial main restricted universe multiverse
+deb [arch=amd64] http://{server}/ca.archive.ubuntu.com/ubuntu xenial main restricted universe multiverse
 
 # node
-# deb http://{server}/ivt/deb.nodesource.com/node_10.x xenial main
+# deb http://{server}/deb.nodesource.com/node_10.x xenial main
 
 # google
-deb [arch=amd64] http://{server}/ivt/dl.google.com/linux/chrome/deb/ stable main
+deb [arch=amd64] http://{server}/dl.google.com/linux/chrome/deb/ stable main
 
 # postgresql
-deb http://{server}/ivt/apt.postgresql.org/pub/repos/apt/ xenial-pgdg main
+deb http://{server}/apt.postgresql.org/pub/repos/apt/ xenial-pgdg main
 """.format(server=server)
 
 
