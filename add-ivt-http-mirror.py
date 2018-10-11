@@ -7,9 +7,13 @@ import argparse
 
 
 def write_source_list(server):
-    return  """
+    return """
 # main
 deb [arch=amd64] http://{server}/ca.archive.ubuntu.com/ubuntu xenial main restricted universe multiverse
+deb [arch=amd64] http://{server}/ca.archive.ubuntu.com/ubuntu xenial-security main restricted universe multiverse
+deb [arch=amd64] http://{server}/ca.archive.ubuntu.com/ubuntu xenial-updates main restricted universe multiverse
+# deb [arch=amd64] http://{server}/ca.archive.ubuntu.com/ubuntu xenial-proposed main restricted universe multiverse
+deb [arch=amd64] http://{server}/ca.archive.ubuntu.com/ubuntu xenial-backports main restricted universe multiverse
 
 # node
 # deb http://{server}/deb.nodesource.com/node_10.x xenial main
