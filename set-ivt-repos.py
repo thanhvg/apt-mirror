@@ -109,15 +109,24 @@ def allow_apt_access_user_media(path):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        '-s',
-        '--server',
-        dest='server',
+        '-d',
+        '--dmz',
+        dest='dmz',
+        const='184.71.215.45/r4.5/amd64',
+        nargs='?',
         type=str,
-        default='184.71.215.45/r4.5/amd64',
-        help='Mirror server address')
+        default=False,
+        help='Add mirror server address')
+
+    parser.add_argument(
+        '-u',
+        '--usb',
+        dest='usb',
+        action='store_true',
+        help='Install offline usb mirror')
+
     args = parser.parse_args()
 
-    server = args.server
     sourcefile = '/tmp/ivt-http-mirror.list'
 
     username = os.environ['USER']
@@ -126,19 +135,24 @@ if __name__ == '__main__':
     sourcefile_offline = '/tmp/ivt-offline-mirror.list'
     default_source = 'sources.list'
 
-    try:
-        sourcefile = copy_to_temp(sourcefile, server)
-        copy_to_source_list(sourcefile)
-        print('IVT http mirror added successfully')
+    if (not args.dmz and not args.usb):
+        parser.print_help()
+        sys.exit(0)
 
-        is_mirror_available(mirror_path)
-        allow_apt_access_user_media('/media/' + username)
+    try:
+        if args.dmz:
+            sourcefile = copy_to_temp(sourcefile, args.dmz)
+            copy_to_source_list(sourcefile)
+            print('IVT http mirror added successfully')
+
+        if args.usb:
+            is_mirror_available(mirror_path)
+            allow_apt_access_user_media('/media/' + username)
+            sourcefile_offline = copy_to_temp_offline(sourcefile_offline, username)
+            copy_to_source_list(sourcefile_offline)
+            print('IVT offline mirror added successfully')
 
         clear_default_source_list(default_source)
-
-        sourcefile_offline = copy_to_temp_offline(sourcefile_offline, username)
-        copy_to_source_list(sourcefile_offline)
-        print('IVT offline mirror added successfully')
 
         sys.exit(0)
 
