@@ -30,12 +30,9 @@ def write_source_list_offline(username):
     return """
 # main 
 deb [arch=amd64] file:///media/{username}/apt-mirror/mirror/ca.archive.ubuntu.com/ubuntu xenial main restricted universe multiverse
-deb [arch=amd64] file:///media/{username}/apt-mirror/mirror/ca.archive.ubuntu.com/ubuntu xenial-security main restricted
-# deb-src [arch=amd64] file:///media/{username}/apt-mirror/mirror/ca.archive.ubuntu.com/ubuntu xenial-security main restricted
-deb [arch=amd64] file:///media/{username}/apt-mirror/mirror/ca.archive.ubuntu.com/ubuntu xenial-security universe
-# deb-src [arch=amd64] file:///media/{username}/apt-mirror/mirror/ca.archive.ubuntu.com/ubuntu xenial-security universe
-deb [arch=amd64] file:///media/{username}/apt-mirror/mirror/ca.archive.ubuntu.com/ubuntu xenial-security multiverse
-# deb-src [arch=amd64] file:///media/{username}/apt-mirror/mirror/ca.archive.ubuntu.com/ubuntu xenial-security multiverse
+deb [arch=amd64] file:///media/{username}/apt-mirror/mirror/ca.archive.ubuntu.com/ubuntu xenial-security main restricted universe multiverse
+deb [arch=amd64] file:///media/{username}/apt-mirror/mirror/ca.archive.ubuntu.com/ubuntu xenial-updates main restricted universe multiverse
+deb [arch=amd64] file:///media/{username}/apt-mirror/mirror/ca.archive.ubuntu.com/ubuntu xenial-backports main restricted universe multiverse
 
 # node
 # deb file:///media/{username}/apt-mirror/mirror/deb.nodesource.com/node_10.x xenial main
