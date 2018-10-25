@@ -103,6 +103,39 @@ def allow_apt_access_user_media(path):
         raise Exception('Cannot set permissions for apt')
 
 
+def backup_thidrparty_sourcelist(filename):
+    print('backing up third party sourcelist')
+    run = subprocess.run(['tar', '-zcvf', filename, '/etc/apt/sources.list.d'])
+    if (run.returncode == 0):
+        print('Third party sourcelist is backed up in ' +
+              filename)
+        return 0
+    else:
+        raise Exception('Cannot set permissions for apt')
+
+
+def remove_thirdparty_sourcelist():
+    # get file list
+    mypath = '/etc/apt/sources.list.d/'
+    try:
+        (_, _, files) = next(os.walk(mypath))
+    except Exception:
+        return 0
+
+    files = map(lambda f: mypath + f, files)
+    files = [f for f in files]
+
+    if len(files) == 0:
+        return 0
+
+    run = subprocess.run(['sudo', 'rm'] + files)
+    if (run.returncode == 0):
+        print('Remove third party sourcelist')
+        return 0
+    else:
+        raise Exception('Cannot remove thirdparty sourcelist')
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -132,11 +165,15 @@ if __name__ == '__main__':
     sourcefile_offline = '/tmp/ivt-offline-mirror.list'
     default_source = 'sources.list'
 
+    backup_file = os.environ['HOME'] + '/third-party-sourcelist.gz.tar'
+
     if (not args.dmz and not args.usb):
         parser.print_help()
         sys.exit(0)
 
     try:
+        backup_thidrparty_sourcelist(backup_file)
+        remove_thirdparty_sourcelist()
         if args.dmz:
             sourcefile = copy_to_temp(sourcefile, args.dmz)
             copy_to_source_list(sourcefile)
