@@ -22,11 +22,23 @@ $ python3 set-ivt-mirros.py --usb
 
 If you run it without any param, help message will show up 
 
-4. The app will delete all current third party source list and save them in ~/third-party-sourcelist.gz.tar
+4. The app will delete all current third party source lists and save them in ~/third-party-sourcelist.gz.tar
 
 5. Proceed to update/upgrade
 $ sudo apt update
 $ sudo apt dist-upgrade
 
-6. Reboot
-If offline repo usb drive is plugged in, remove it, plug it back when the machine finishes the reboot
+6. upgrade NoMachine separately
+
+TBD
+
+7. Reboot
+
+If offline repo usb drive is plugged in, remove it
+$sudo apt reboot
+
+7.  Check if upgrade has been performed
+$ uname -a
+
+look for 16.04.5, if it isn't present than the kernel was not updated.
+
