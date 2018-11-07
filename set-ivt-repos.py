@@ -133,7 +133,7 @@ def remove_thirdparty_sourcelist():
         print('Remove third party sourcelist')
         return 0
     else:
-        raise Exception('Cannot remove thirdparty sourcelist')
+        raise Exception('Cannot remove third party sourcelist')
 
 
 if __name__ == '__main__':
@@ -142,7 +142,7 @@ if __name__ == '__main__':
         '-d',
         '--dmz',
         dest='dmz',
-        const='184.71.215.45/r4.5/amd64',
+        const='184.71.215.44/r5.0/amd64',
         nargs='?',
         type=str,
         default=False,
