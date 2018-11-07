@@ -37,7 +37,7 @@ TBD
 If offline repo usb drive is plugged in, remove it
 $sudo apt reboot
 
-7.  Check if upgrade has been performed
+8.  Check if upgrade has been performed
 $ uname -a
 
 look for 16.04.5, if it isn't present than the kernel was not updated.
