@@ -52,6 +52,7 @@ def is_mirror_available(path):
     else:
         raise Exception('Mirror location not found')
 
+
 def copy_to_temp_offline(filename, username):
     content = write_source_list_offline(username)
     try:
@@ -60,6 +61,7 @@ def copy_to_temp_offline(filename, username):
         return filename
     except Exception:
         raise Exception('Cannot copy to tmp')
+
 
 def copy_to_temp(filename, server):
     content = write_source_list(server)
@@ -136,6 +138,23 @@ def remove_thirdparty_sourcelist():
         raise Exception('Cannot remove third party sourcelist')
 
 
+def create_disabled_chrome_repo():
+    """ create a disabled chrome repo to make
+    chrome repo watcher which runs daily happy
+    """
+    content = """### THIS FILE IS AUTOMATICALLY CONFIGURED ###
+# You may comment out this entry, but any other modifications may be lost.
+# deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"""
+
+    filename = '/tmp/google-chrome.list'
+    try:
+        with open(filename, 'wt') as f:
+            print(content, file=f)
+    except Exception:
+        raise Exception('Cannot copy to tmp')
+    copy_to_source_list(filename)
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -174,6 +193,7 @@ if __name__ == '__main__':
     try:
         backup_thidrparty_sourcelist(backup_file)
         remove_thirdparty_sourcelist()
+        create_disabled_chrome_repo()
         if args.dmz:
             sourcefile = copy_to_temp(sourcefile, args.dmz)
             copy_to_source_list(sourcefile)
@@ -182,7 +202,8 @@ if __name__ == '__main__':
         if args.usb:
             is_mirror_available(mirror_path)
             allow_apt_access_user_media('/media/' + username)
-            sourcefile_offline = copy_to_temp_offline(sourcefile_offline, username)
+            sourcefile_offline = copy_to_temp_offline(
+                sourcefile_offline, username)
             copy_to_source_list(sourcefile_offline)
             print('IVT offline mirror added successfully')
 
